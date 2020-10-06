@@ -17,7 +17,7 @@ export class UsersController {
         return this.usersService.findAll();
     }
 
-    @POST(':username')
+    @Post(':username')
     findOne(@Param('username') username: string): Promise<User | undefined> {
         return this.usersService.findOne(username);
     }
