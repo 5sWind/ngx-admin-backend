@@ -16,7 +16,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'test',
       entities: [],
       synchronize: true,
-    }),],
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
