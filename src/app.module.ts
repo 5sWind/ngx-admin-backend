@@ -13,7 +13,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       port: 5432,
       username: 'root',
       password: 'root',
-      database: 'mis',
+      database: 'ldmis',
       entities: [],
       synchronize: true,
     }),
