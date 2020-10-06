@@ -19,7 +19,7 @@ export class AuthService {
     }
 
     async login(user: any) {
-        const payload = { username: user.username, sub: user.userId, role: user.role };
+        const payload = { username: user.username, sub: user.id, role: user.role };
         return {
             token: this.jwtService.sign(payload, { expiresIn: 86400 }),
         };
