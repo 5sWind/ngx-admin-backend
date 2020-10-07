@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
+import { DepartmentModule } from './department/department.module';
 
 @Module({
   imports: [AuthModule, UsersModule,
@@ -18,7 +19,7 @@ import { Connection } from 'typeorm';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
       autoLoadEntities: true,
-    }), UsersModule],
+    }), UsersModule, DepartmentModule],
   controllers: [AppController],
   providers: [AppService],
 })
