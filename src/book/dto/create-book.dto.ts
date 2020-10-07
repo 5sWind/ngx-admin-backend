@@ -17,6 +17,6 @@ export class CreateBookDto {
     species?: SpeciesType;
     geography?: string;
     warehouseDate: Date;
-    warehousequantity?: number;
+    warehouseQuantity?: number;
     memo?: string;
 }

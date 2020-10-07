@@ -30,7 +30,7 @@ export class BookService {
         book.species = createBookDto.species;
         book.geography = createBookDto.geography;
         book.warehouseDate = createBookDto.warehouseDate;
-        book.warehouseQuantity = createBookDto.warehousequantity;
+        book.warehouseQuantity = createBookDto.warehouseQuantity;
         book.memo = createBookDto.memo;
 
         return this.booksRepository.save(book);
