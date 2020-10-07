@@ -6,9 +6,18 @@ import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { DepartmentModule } from './department/department.module';
+import { EmployeeModule } from './employee/employee.module';
+import { BookModule } from './book/book.module';
+import { ReaderModule } from './reader/reader.module';
+import { VendorModule } from './vendor/vendor.module';
+import { WarehouseModule } from './warehouse/warehouse.module';
+import { LendingModule } from './lending/lending.module';
+import { ProcurementModule } from './procurement/procurement.module';
+import { ArrivalModule } from './arrival/arrival.module';
+import { SystemModule } from './system/system.module';
 
 @Module({
-  imports: [AuthModule, UsersModule,
+  imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -19,7 +28,7 @@ import { DepartmentModule } from './department/department.module';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
       autoLoadEntities: true,
-    }), UsersModule, DepartmentModule],
+    }), AuthModule, UsersModule, DepartmentModule, EmployeeModule, BookModule, ReaderModule, VendorModule, WarehouseModule, LendingModule, ProcurementModule, ArrivalModule, SystemModule],
   controllers: [AppController],
   providers: [AppService],
 })
