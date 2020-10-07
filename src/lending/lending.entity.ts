@@ -5,17 +5,8 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
 @Entity()
 export class Lending {
-    @PrimaryGeneratedColumn('uuid')
-    public id!: string;
-
-    @Column()
-    public bookid!: number;
-
-    @Column()
-    public readerid!: number;
-
-    @Column()
-    public employeeid!: number;
+    @PrimaryGeneratedColumn()
+    public id!: number;
 
     @Column({
         type: 'date',

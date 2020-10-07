@@ -126,13 +126,13 @@ export class Book {
         type: "date",
         nullable: true
     })
-    warehousedate: Date;
+    warehouseDate: Date;
 
     @Column({
         type: "int",
         nullable: true
     })
-    warehousequantity: number;
+    warehouseQuantity: number;
 
     @Column({
         type: "varchar",

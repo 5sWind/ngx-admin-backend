@@ -11,17 +11,8 @@ export enum ResultType {
 }
 @Entity()
 export class Arrival {
-    @PrimaryGeneratedColumn('uuid')
-    public id!: string;
-
-    @Column()
-    public bookid!: number;
-
-    @Column()
-    public procurementid!: string;
-
-    @Column()
-    public employeeid!: number;
+    @PrimaryGeneratedColumn()
+    public id!: number;
 
     @Column({
         type: 'date',

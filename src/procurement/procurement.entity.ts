@@ -12,17 +12,8 @@ export enum StateType {
 }
 @Entity()
 export class Procurement {
-    @PrimaryGeneratedColumn('uuid')
-    public id!: string;
-
-    @Column()
-    public bookid!: number;
-
-    @Column()
-    public vendorid!: number;
-
-    @Column()
-    public employeeid!: number;
+    @PrimaryGeneratedColumn()
+    public id!: number;
 
     @Column({
         type: 'date',
