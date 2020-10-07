@@ -30,7 +30,6 @@ export class Arrival {
 
     @Column({
         type: 'int',
-        length: 9,
         nullable: true,
     })
     public quantity!: number;
