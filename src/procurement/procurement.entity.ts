@@ -37,7 +37,6 @@ export class Procurement {
 
     @Column({
         type: 'money',
-        length: 8,
     })
     public price!: number;
 
