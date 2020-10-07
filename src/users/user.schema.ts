@@ -16,7 +16,10 @@ export const UserSchema = new EntitySchema<User>({
         password: {
             type: String,
         },
-        isActive: {
+        role: {
+            type: String,
+        },
+        active: {
             type: Boolean,
             default: true,
         },

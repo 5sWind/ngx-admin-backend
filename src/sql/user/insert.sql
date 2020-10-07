@@ -1,9 +1,9 @@
-INSERT INTO "USER" (
+INSERT INTO "user" (
                 ID,
                 USERNAME,
                 PASSWORD,
                 ROLE,
-                ISACTIVE
+                ACTIVE
         )
 VALUES (
                 1,
