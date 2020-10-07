@@ -56,15 +56,14 @@ export class Book {
     publication: Date;
 
     @Column({
-        type: "int",
+        type: "varchar",
         length: 13,
         unique: true
     })
-    isbn: number;
+    isbn: string;
 
     @Column({
         type: "int",
-        length: 9,
         nullable: true,
     })
     quantity: number;
@@ -131,7 +130,6 @@ export class Book {
 
     @Column({
         type: "int",
-        length: 9,
         nullable: true
     })
     warehousequantity: number;

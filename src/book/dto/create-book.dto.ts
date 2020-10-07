@@ -6,7 +6,7 @@ export class CreateBookDto {
     author: string;
     press?: string;
     publication?: Date;
-    isbn: number;
+    isbn: string;
     quantity?: number;
     img?: string;
     intro?: string;

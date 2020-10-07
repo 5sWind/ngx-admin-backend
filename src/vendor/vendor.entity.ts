@@ -21,11 +21,11 @@ export class Vendor {
     address: string;
 
     @Column({
-        type: "int",
+        type: "varchar",
         length: 15,
         nullable: true
     })
-    fax: number;
+    fax: string;
 
     @Column({
         type: "varchar",
@@ -35,11 +35,11 @@ export class Vendor {
     contact: string;
 
     @Column({
-        type: "int",
+        type: "varchar",
         length: 15,
         nullable: true
     })
-    phone: number;
+    phone: string;
 
     @Column({
         type: "varchar",
@@ -57,11 +57,11 @@ export class Vendor {
     bank: string;
 
     @Column({
-        type: "int",
+        type: "varchar",
         length: 30,
         nullable: true
     })
-    account: number;
+    account: string;
 
     @Column({
         type: "varchar",

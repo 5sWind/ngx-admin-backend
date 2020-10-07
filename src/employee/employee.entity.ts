@@ -58,12 +58,12 @@ export class Employee {
     title: string;
 
     @Column({
-        type: "int",
+        type: "varchar",
         length: 15,
         nullable: true,
         unique: true
     })
-    phone: number;
+    phone: string;
 
     @Column({
         type: "varchar",

@@ -5,8 +5,8 @@ export class CreateReaderDto {
     type?: ReaderType;
     expiration?: Date;
     name: string;
-    idno: number;
-    phone?: number;
+    idno: string;
+    phone?: string;
     email?: string;
     register?: Date;
     cancel?: Date;

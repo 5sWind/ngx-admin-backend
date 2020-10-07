@@ -38,19 +38,18 @@ export class Reader {
     name: string;
 
     @Column({
-        type: "int",
-        length: 18,
+        type: "varchar",
         unique: true
     })
-    idno: number;
+    idno: string;
 
     @Column({
-        type: "int",
+        type: "varchar",
         length: 15,
         nullable: true,
         unique: true
     })
-    phone: number;
+    phone: string;
     
     @Column({
         type: "varchar",

@@ -44,14 +44,12 @@ export class Arrival {
 
     @Column({
         type: "int",
-        length: 9,
         nullable: true,
     })
     public pass!: number;
 
     @Column({
         type: "int",
-        length: 9,
         nullable: true,
     })
     public refill!: number;

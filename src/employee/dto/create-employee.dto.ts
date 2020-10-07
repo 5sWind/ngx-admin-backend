@@ -6,7 +6,7 @@ export class CreateEmployeeDto {
     birthday?: Date;
     education?: EducationType;
     title: string;
-    phone?: number;
+    phone?: string;
     email?: string;
     contract?: Date;
     enrollment: Date;

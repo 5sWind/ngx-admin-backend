@@ -1,11 +1,11 @@
 export class CreateVendorDto {
     name: string;
     address?: string;
-    fax?: number;
+    fax?: string;
     contact?: string;
-    phone?: number;
+    phone?: string;
     email?: string;
     bank?: string;
-    account?: number;
+    account?: string;
     memo?: string;
 }
