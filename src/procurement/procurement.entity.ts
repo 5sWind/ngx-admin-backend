@@ -31,7 +31,6 @@ export class Procurement {
 
     @Column({
         type: 'int',
-        length: 9,
         nullable: true,
     })
     public quantity!: number;
