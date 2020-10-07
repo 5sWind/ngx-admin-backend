@@ -29,7 +29,7 @@ export class BookService {
         book.price = createBookDto.price;
         book.species = createBookDto.species;
         book.geography = createBookDto.geography;
-        book.warehouseDate = createBookDto.warehousedate;
+        book.warehouseDate = createBookDto.warehouseDate;
         book.warehouseQuantity = createBookDto.warehousequantity;
         book.memo = createBookDto.memo;
 

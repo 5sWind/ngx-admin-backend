@@ -16,7 +16,7 @@ export class CreateBookDto {
     price?: number;
     species?: SpeciesType;
     geography?: string;
-    warehousedate: Date;
+    warehouseDate: Date;
     warehousequantity?: number;
     memo?: string;
 }
