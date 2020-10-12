@@ -6,6 +6,7 @@ import { Warehouse } from 'src/warehouse/warehouse.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne, OneToMany, ManyToOne } from 'typeorm';
 
 export enum GenderType {
+    NONE = '',
     MALE = 'M',
     FEMALE = 'F',
     UNDECLARED = 'U'
