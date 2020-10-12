@@ -12,8 +12,8 @@ export enum GenderType {
 }
 export enum EducationType {
     NOTAPPLY = 'N',
-    COLLEGE = 'F',
-    BACHELOR = 'U',
+    COLLEGE = 'C',
+    BACHELOR = 'B',
     MASTER = 'M',
     DOCTOR = 'D'
 }
