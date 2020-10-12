@@ -9,7 +9,7 @@ export class CreateEmployeeDto {
     phone?: string;
     email?: string;
     contract?: Date;
-    enrollment: Date;
+    enrollment?: Date;
     resign?: Date;
     memo?: string;
 }
