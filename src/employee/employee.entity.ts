@@ -12,6 +12,7 @@ export enum GenderType {
     UNDECLARED = 'U'
 }
 export enum EducationType {
+    NONE = '',
     NOTAPPLY = 'N',
     COLLEGE = 'C',
     BACHELOR = 'B',
