@@ -28,8 +28,8 @@ export class DepartmentService {
         return this.departmentsRepository.findOne(id);
     }
 
-    async update(departmentData: any): Promise<Department> {
-        const toUpdate = await this.departmentsRepository.findOne(departmentData.id);
+    async update(id: string, departmentData: CreateDepartmentDto): Promise<Department> {
+        const toUpdate = await this.departmentsRepository.findOne(id);
         const newData = Object.assign(toUpdate, departmentData);
         return this.departmentsRepository.save(newData);
     }

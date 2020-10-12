@@ -22,9 +22,9 @@ export class VendorController {
         return this.vendorService.findOne(id);
     }
 
-    @Put()
-    update(@Body('vendor') vendorData: CreateVendorDto): Promise<Vendor> {
-        return this.vendorService.update(vendorData);
+    @Put(':id')
+    update(@Param('id') id: string, @Body() vendorData: CreateVendorDto): Promise<Vendor> {
+        return this.vendorService.update(id, vendorData);
     }
 
     @Delete(':id')

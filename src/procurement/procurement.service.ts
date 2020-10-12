@@ -31,8 +31,8 @@ export class ProcurementService {
         return this.procurementsRepository.findOne(id);
     }
 
-    async update(procurementData: any): Promise<Procurement> {
-        const toUpdate = await this.procurementsRepository.findOne(procurementData.id);
+    async update(id: string, procurementData: CreateProcurementDto): Promise<Procurement> {
+        const toUpdate = await this.procurementsRepository.findOne(id);
         const newData = Object.assign(toUpdate, procurementData);
         return this.procurementsRepository.save(newData);
     }

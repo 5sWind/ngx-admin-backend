@@ -36,8 +36,8 @@ export class ReaderService {
         return this.readersRepository.findOne(id);
     }
 
-    async update(readerData: any): Promise<Reader> {
-        const toUpdate = await this.readersRepository.findOne(readerData.id);
+    async update(id: string, readerData: CreateReaderDto): Promise<Reader> {
+        const toUpdate = await this.readersRepository.findOne(id);
         const newData = Object.assign(toUpdate, readerData);
         return this.readersRepository.save(newData);
     }

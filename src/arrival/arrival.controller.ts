@@ -22,9 +22,9 @@ export class ArrivalController {
         return this.arrivalService.findOne(id);
     }
 
-    @Put()
-    update(@Body('arrival') arrivalData: CreateArrivalDto): Promise<Arrival> {
-        return this.arrivalService.update(arrivalData);
+    @Put(':id')
+    update(@Param('id') id: string, @Body() arrivalData: CreateArrivalDto): Promise<Arrival> {
+        return this.arrivalService.update(id, arrivalData);
     }
 
     @Delete(':id')

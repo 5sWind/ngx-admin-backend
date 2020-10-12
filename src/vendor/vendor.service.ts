@@ -35,8 +35,8 @@ export class VendorService {
         return this.vendorsRepository.findOne(id);
     }
 
-    async update(vendorData: any): Promise<Vendor> {
-        const toUpdate = await this.vendorsRepository.findOne(vendorData.id);
+    async update(id: string, vendorData: CreateVendorDto): Promise<Vendor> {
+        const toUpdate = await this.vendorsRepository.findOne(id);
         const newData = Object.assign(toUpdate, vendorData);
         return this.vendorsRepository.save(newData);
     }

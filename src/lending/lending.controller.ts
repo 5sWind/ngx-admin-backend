@@ -22,9 +22,9 @@ export class LendingController {
         return this.lendingService.findOne(id);
     }
 
-    @Put()
-    update(@Body('lending') lendingData: CreateLendingDto): Promise<Lending> {
-        return this.lendingService.update(lendingData);
+    @Put(':id')
+    update(@Param('id') id: string, @Body() lendingData: CreateLendingDto): Promise<Lending> {
+        return this.lendingService.update(id, lendingData);
     }
 
     @Delete(':id')

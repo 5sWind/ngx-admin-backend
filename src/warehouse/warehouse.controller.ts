@@ -22,9 +22,9 @@ export class WarehouseController {
         return this.warehouseService.findOne(id);
     }
 
-    @Put()
-    update(@Body('warehouse') warehouseData: CreateWarehouseDto): Promise<Warehouse> {
-        return this.warehouseService.update(warehouseData);
+    @Put(':id')
+    update(@Param('id') id: string, @Body() warehouseData: CreateWarehouseDto): Promise<Warehouse> {
+        return this.warehouseService.update(id, warehouseData);
     }
 
     @Delete(':id')

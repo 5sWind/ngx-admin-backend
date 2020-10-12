@@ -22,9 +22,9 @@ export class SystemController {
         return this.systemService.findOne(id);
     }
 
-    @Put()
-    update(@Body('system') systemData: CreateSystemDto): Promise<System> {
-        return this.systemService.update(systemData);
+    @Put(':id')
+    update(@Param('id') id: string, @Body() systemData: CreateSystemDto): Promise<System> {
+        return this.systemService.update(id, systemData);
     }
 
     @Delete(':id')

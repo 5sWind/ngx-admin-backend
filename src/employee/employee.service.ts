@@ -37,8 +37,8 @@ export class EmployeeService {
         return this.employeesRepository.findOne(id);
     }
 
-    async update(employeeData: any): Promise<Employee> {
-        const toUpdate = await this.employeesRepository.findOne(employeeData.id);
+    async update(id: string, employeeData: CreateEmployeeDto): Promise<Employee> {
+        const toUpdate = await this.employeesRepository.findOne(id);
         const newData = Object.assign(toUpdate, employeeData);
         return this.employeesRepository.save(newData);
     }

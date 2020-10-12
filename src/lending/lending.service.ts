@@ -29,8 +29,8 @@ export class LendingService {
         return this.lendingsRepository.findOne(id);
     }
 
-    async update(lendingData: any): Promise<Lending> {
-        const toUpdate = await this.lendingsRepository.findOne(lendingData.id);
+    async update(id: string, lendingData: CreateLendingDto): Promise<Lending> {
+        const toUpdate = await this.lendingsRepository.findOne(id);
         const newData = Object.assign(toUpdate, lendingData);
         return this.lendingsRepository.save(newData);
     }

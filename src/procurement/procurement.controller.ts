@@ -22,9 +22,9 @@ export class ProcurementController {
         return this.procurementService.findOne(id);
     }
 
-    @Put()
-    update(@Body('procurement') procurementData: CreateProcurementDto): Promise<Procurement> {
-        return this.procurementService.update(procurementData);
+    @Put(':id')
+    update(@Param('id') id: string, @Body() procurementData: CreateProcurementDto): Promise<Procurement> {
+        return this.procurementService.update(id, procurementData);
     }
 
     @Delete(':id')

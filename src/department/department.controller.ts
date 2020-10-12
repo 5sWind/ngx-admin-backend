@@ -22,9 +22,9 @@ export class DepartmentController {
         return this.departmentService.findOne(id);
     }
 
-    @Put()
-    update(@Body('department') departmentData: CreateDepartmentDto): Promise<Department> {
-        return this.departmentService.update(departmentData);
+    @Put(':id')
+    update(@Param('id') id: string, @Body() departmentData: CreateDepartmentDto): Promise<Department> {
+        return this.departmentService.update(id, departmentData);
     }
 
     @Delete(':id')

@@ -32,8 +32,8 @@ export class ArrivalService {
         return this.arrivalsRepository.findOne(id);
     }
 
-    async update(arrivalData: any): Promise<Arrival> {
-        const toUpdate = await this.arrivalsRepository.findOne(arrivalData.id);
+    async update(id: string, arrivalData: CreateArrivalDto): Promise<Arrival> {
+        const toUpdate = await this.arrivalsRepository.findOne(id);
         const newData = Object.assign(toUpdate, arrivalData);
         return this.arrivalsRepository.save(newData);
     }

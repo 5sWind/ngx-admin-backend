@@ -22,9 +22,9 @@ export class BookController {
         return this.bookService.findOne(id);
     }
 
-    @Put()
-    update(@Body('book') bookData: CreateBookDto): Promise<Book> {
-        return this.bookService.update(bookData);
+    @Put(':id')
+    update(@Param('id') id: string, @Body() bookData: CreateBookDto): Promise<Book> {
+        return this.bookService.update(id, bookData);
     }
 
     @Delete(':id')

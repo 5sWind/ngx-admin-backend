@@ -22,9 +22,9 @@ export class EmployeeController {
         return this.employeeService.findOne(id);
     }
 
-    @Put()
-    update(@Body('employee') employeeData: CreateEmployeeDto): Promise<Employee> {
-        return this.employeeService.update(employeeData);
+    @Put(':id')
+    update(@Param('id') id: string, @Body() employeeData: CreateEmployeeDto): Promise<Employee> {
+        return this.employeeService.update(id, employeeData);
     }
 
     @Delete(':id')

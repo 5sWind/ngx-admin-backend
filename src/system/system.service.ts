@@ -30,8 +30,8 @@ export class SystemService {
         return this.systemsRepository.findOne(id);
     }
 
-    async update(systemData: any): Promise<System> {
-        const toUpdate = await this.systemsRepository.findOne(systemData.id);
+    async update(id: string, systemData: CreateSystemDto): Promise<System> {
+        const toUpdate = await this.systemsRepository.findOne(id);
         const newData = Object.assign(toUpdate, systemData);
         return this.systemsRepository.save(newData);
     }

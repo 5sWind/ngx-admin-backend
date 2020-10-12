@@ -22,9 +22,9 @@ export class ReaderController {
         return this.readerService.findOne(id);
     }
 
-    @Put()
-    update(@Body('reader') readerData: CreateReaderDto): Promise<Reader> {
-        return this.readerService.update(readerData);
+    @Put(':id')
+    update(@Param('id') id: string, @Body() readerData: CreateReaderDto): Promise<Reader> {
+        return this.readerService.update(id, readerData);
     }
 
     @Delete(':id')

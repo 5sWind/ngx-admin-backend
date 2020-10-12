@@ -28,8 +28,8 @@ export class WarehouseService {
         return this.warehousesRepository.findOne(id);
     }
 
-    async update(warehouseData: any): Promise<Warehouse> {
-        const toUpdate = await this.warehousesRepository.findOne(warehouseData.id);
+    async update(id: string, warehouseData: CreateWarehouseDto): Promise<Warehouse> {
+        const toUpdate = await this.warehousesRepository.findOne(id);
         const newData = Object.assign(toUpdate, warehouseData);
         return this.warehousesRepository.save(newData);
     }

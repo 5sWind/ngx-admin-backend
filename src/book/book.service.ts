@@ -44,8 +44,8 @@ export class BookService {
         return this.booksRepository.findOne(id);
     }
 
-    async update(bookData: any): Promise<Book> {
-        const toUpdate = await this.booksRepository.findOne(bookData.id);
+    async update(id: string, bookData: CreateBookDto): Promise<Book> {
+        const toUpdate = await this.booksRepository.findOne(id);
         const newData = Object.assign(toUpdate, bookData);
         return this.booksRepository.save(newData);
     }
