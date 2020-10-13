@@ -3,7 +3,7 @@ import { Arrival } from 'src/arrival/arrival.entity';
 import { Book } from 'src/book/book.entity';
 import { Employee } from 'src/employee/employee.entity';
 import { Vendor } from 'src/vendor/vendor.entity';
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn } from 'typeorm';
 
 export enum StateType {
     DELIVERED = 'D',
@@ -14,6 +14,15 @@ export enum StateType {
 export class Procurement {
     @PrimaryGeneratedColumn()
     public id!: number;
+
+    @Column('int', { nullable: true })
+    public bookId!: number;
+
+    @Column('int', { nullable: true })
+    public vendorId!: number;
+
+    @Column('int', { nullable: true })
+    public employeeId!: number;
 
     @Column({
         type: 'date',
@@ -46,12 +55,15 @@ export class Procurement {
     public memo!: string;
 
     @ManyToOne(type => Book, book => book.procurement)
+    @JoinColumn({ name: 'bookId' })
     public book!: Book;
 
     @ManyToOne(type => Vendor, vendor => vendor.procurement)
+    @JoinColumn({ name: 'vendorId' })
     public vendor!: Vendor;
 
     @ManyToOne(type => Employee, employee => employee.procurement)
+    @JoinColumn({ name: 'employeeId' })
     public employee!: Employee;
 
     @OneToMany(type => Arrival, arrival => arrival.procurement)

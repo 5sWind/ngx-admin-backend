@@ -7,8 +7,11 @@ export class System {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column('int', { nullable: true })
+    departmentId: number;
+
     @ManyToOne(type => Department, department => department.system)
-    @JoinColumn()
+    @JoinColumn({ name: 'departmentId' })
     department: Department;
 
     @Column({

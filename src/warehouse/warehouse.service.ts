@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Employee } from 'src/employee/employee.entity';
 import { Repository } from 'typeorm';
 import { CreateWarehouseDto } from './dto/create-warehouse.dto';
 import { Warehouse } from './warehouse.entity';
@@ -9,10 +10,13 @@ export class WarehouseService {
     constructor(
         @InjectRepository(Warehouse)
         private readonly warehousesRepository: Repository<Warehouse>,
+        @InjectRepository(Employee)
+        private readonly employeesRepository: Repository<Employee>,
     ) { }
 
-    create(createWarehouseDto: CreateWarehouseDto): Promise<Warehouse> {
+    async create(createWarehouseDto: CreateWarehouseDto): Promise<Warehouse> {
         const warehouse = new Warehouse();
+        warehouse.employee = await this.employeesRepository.findOneOrFail(createWarehouseDto.employeeId);
         warehouse.name = createWarehouseDto.name;
         warehouse.address = createWarehouseDto.address;
         warehouse.memo = createWarehouseDto.memo;

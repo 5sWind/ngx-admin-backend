@@ -7,8 +7,11 @@ export class Warehouse {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column('int', { nullable: true })
+    employeeId: number;
+
     @OneToOne(type => Employee, employee => employee.warehouse)
-    @JoinColumn()
+    @JoinColumn({ name: 'employeeId' })
     employee: Employee;
 
     @Column({

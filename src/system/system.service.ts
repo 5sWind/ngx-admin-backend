@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Department } from 'src/department/department.entity';
 import { Repository } from 'typeorm';
 import { CreateSystemDto } from './dto/create-system.dto';
 import { System } from './system.entity';
@@ -10,10 +11,13 @@ export class SystemService {
     constructor(
         @InjectRepository(System)
         private readonly systemsRepository: Repository<System>,
+        @InjectRepository(Department)
+        private readonly departmentsRepository: Repository<Department>,
     ) { }
 
-    create(createSystemDto: CreateSystemDto): Promise<System> {
+    async create(createSystemDto: CreateSystemDto): Promise<System> {
         const system = new System();
+        system.department = await this.departmentsRepository.findOneOrFail(createSystemDto.departmentId);
         system.name = createSystemDto.name;
         system.location = createSystemDto.location;
         system.source = createSystemDto.source;

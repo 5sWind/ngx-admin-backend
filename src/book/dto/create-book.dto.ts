@@ -1,6 +1,7 @@
 import { SpeciesType, StateType } from "../book.entity";
 
 export class CreateBookDto {
+    warehouseId: number;
     name: string;
     type?: string;
     author: string;

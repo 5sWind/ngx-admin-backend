@@ -3,7 +3,7 @@ import { Department } from 'src/department/department.entity';
 import { Lending } from 'src/lending/lending.entity';
 import { Procurement } from 'src/procurement/procurement.entity';
 import { Warehouse } from 'src/warehouse/warehouse.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, OneToMany, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 
 export enum GenderType {
     MALE = 'M',
@@ -22,7 +22,11 @@ export class Employee {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column('int', { nullable: true })
+    departmentId: number;
+
     @ManyToOne(() => Department, department => department.employees)
+    @JoinColumn({ name: 'departmentId' })
     department: Department;
 
     @Column({

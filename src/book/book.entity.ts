@@ -3,7 +3,7 @@ import { Arrival } from 'src/arrival/arrival.entity';
 import { Lending } from 'src/lending/lending.entity';
 import { Procurement } from 'src/procurement/procurement.entity';
 import { Warehouse } from 'src/warehouse/warehouse.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 
 export enum StateType {
     BORROWABLE = 'B',
@@ -20,7 +20,11 @@ export class Book {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column('int', { nullable: true })
+    warehouseId: number;
+
     @ManyToOne(() => Warehouse, warehouse => warehouse.books)
+    @JoinColumn({ name: 'warehouseId' })
     warehouse: Warehouse;
 
     @Column({

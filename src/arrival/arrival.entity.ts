@@ -2,7 +2,7 @@
 import { Book } from 'src/book/book.entity';
 import { Employee } from 'src/employee/employee.entity';
 import { Procurement } from 'src/procurement/procurement.entity';
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 
 export enum ResultType {
     PASS = 'P',
@@ -13,6 +13,15 @@ export enum ResultType {
 export class Arrival {
     @PrimaryGeneratedColumn()
     public id!: number;
+
+    @Column('int', { nullable: true })
+    public bookId!: number;
+
+    @Column('int', { nullable: true })
+    public procurementId!: number;
+
+    @Column('int', { nullable: true })
+    public employeeId!: number;
 
     @Column({
         type: 'date',
@@ -52,11 +61,14 @@ export class Arrival {
     public memo!: string;
 
     @ManyToOne(type => Book, book => book.arrival)
+    @JoinColumn({ name: 'bookId' })
     public book!: Book;
 
     @ManyToOne(type => Procurement, procurement => procurement.arrival)
+    @JoinColumn({ name: 'procurementId' })
     public procurement!: Procurement;
 
     @ManyToOne(type => Employee, employee => employee.arrival)
+    @JoinColumn({ name: 'employeeId' })
     public employee!: Employee;
 }

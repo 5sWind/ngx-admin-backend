@@ -1,5 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Book } from 'src/book/book.entity';
+import { Employee } from 'src/employee/employee.entity';
+import { Procurement } from 'src/procurement/procurement.entity';
 import { Repository } from 'typeorm';
 import { Arrival } from './arrival.entity';
 import { CreateArrivalDto } from './dto/create-arrival.dto';
@@ -10,10 +13,19 @@ export class ArrivalService {
     constructor(
         @InjectRepository(Arrival)
         private readonly arrivalsRepository: Repository<Arrival>,
+        @InjectRepository(Book)
+        private readonly booksRepository: Repository<Book>,
+        @InjectRepository(Procurement)
+        private readonly procurementsRepository: Repository<Procurement>,
+        @InjectRepository(Employee)
+        private readonly employeesRepository: Repository<Employee>,
     ) { }
 
-    create(createArrivalDto: CreateArrivalDto): Promise<Arrival> {
+    async create(createArrivalDto: CreateArrivalDto): Promise<Arrival> {
         const arrival = new Arrival();
+        arrival.book = await this.booksRepository.findOneOrFail(createArrivalDto.bookId);
+        arrival.procurement = await this.procurementsRepository.findOneOrFail(createArrivalDto.procurementId);
+        arrival.employee = await this.employeesRepository.findOneOrFail(createArrivalDto.employeeId);
         arrival.date = createArrivalDto.date;
         arrival.quantity = createArrivalDto.quantity;
         arrival.result = createArrivalDto.result;

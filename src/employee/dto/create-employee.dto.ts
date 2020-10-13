@@ -1,6 +1,7 @@
 import { EducationType, GenderType } from "../employee.entity";
 
 export class CreateEmployeeDto {
+    departmentId: number;
     name: string;
     gender?: GenderType;
     birthday?: Date;
